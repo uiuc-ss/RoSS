@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<!-- saved from url=(0050)https://uiuc-earable-computing.github.io/binaural/ -->
+<!-- saved from url=(0050)https://github.com/uiuc-ss/RoSS/-->
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         
 		
         <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
 
-        <meta name="description" content="Learning Binaural Demos">
-        <meta name="author" content="Zhongweiyang Xu">
+        <meta name="description" content="RoSS Demos">
+        <meta name="author" content="Hyungjoo Seo">
 
-	    <title>Learning to Separate Voices by Spatial Regions</title>
+	    <title>RoSS: Utilizing Robotic Rotation for Audio Source Separation</title>
 
         <!-- Bootflat CSS -->
         <link rel="stylesheet" href="css/bootflat.css">
@@ -430,10 +430,10 @@ mjx-stretchy-v mjx-c, mjx-stretchy-h mjx-c {
 
     		        <div class="collapse navbar-collapse navbar-right" id="dropdown-box-1">
 	    			    <ul class="nav navbar-nav">
-		    			    <li><a href="https://uiuc-earable-computing.github.io/binaural/#intro_target">Overview</a></li>
-                            <li><a href="https://uiuc-earable-computing.github.io/binaural/#results_target">Results</a></li>
-			    			<li><a href="https://uiuc-earable-computing.github.io/binaural/#demos_target">Demos</a></li>
-				    		<li><a href="https://uiuc-earable-computing.github.io/binaural/#references_target">References</a></li>
+		    			    <li><a href="https://github.com/uiuc-ss/RoSS/#intro_target">Overview</a></li>
+                            <li><a href="https://github.com/uiuc-ss/RoSS/#results_target">Results</a></li>
+			    			<li><a href="https://github.com/uiuc-ss/RoSS/#demos_target">Demos</a></li>
+				    		<li><a href="https://github.com/uiuc-ss/RoSS/#references_target">References</a></li>
 				    	</ul>
 			        </div>
                 </div>
@@ -443,11 +443,11 @@ mjx-stretchy-v mjx-c, mjx-stretchy-h mjx-c {
 		<div id="paper_info">
 			<div id="paper_title">
     	        <h1>Learning to Separate Voices by Spatial Regions</h1>
-                <p style="color:lightblue;font-size:18px;">Published as conference paper at ICML 2022 
-                    [ <a href="https://synrg.csl.illinois.edu/papers/source_separation_icml22.pdf">pdf </a>]</p>
+                <p style="color:lightblue;font-size:18px;">Submitted as a contribution paper at ICRA 2023 
+                    </p>
 
 
-				<h4><a href="https://zhongweiyangxu.web.illinois.edu/">Zhongweiyang Xu</a>, <a href="http://croy.web.engr.illinois.edu/">Romit Roy Choudhury</a></h4>
+				<h4><a href="https://seoyumyum.github.io/">Hyungjoo Seo</a>, <a href="http://sahilbhandary.web.illinois.edu/">Sahil Bhandary Karnoor</a>, and <a href="http://croy.web.engr.illinois.edu/">Romit Roy Choudhury</a></h4>
 				<h5>University of Illinois Urbana-Champaign</h5>
 			</div>
 		</div>
@@ -464,87 +464,36 @@ mjx-stretchy-v mjx-c, mjx-stretchy-h mjx-c {
                 
 
 
-                <p>We consider a special case of the classical audio source separation problem, where (1) two microphones are in an 
+                <p>This paper considers the problem of audio source separation, where the goal is to isolate a target audio signal
+			(say Alice’s speech) from a mixture of multiple interfering
+			signals (e.g., when many people are talking). This problem has
+			gained renewed interest mainly due to the significant growth
+			in voice-controlled devices, including robots in homes, offices,
+			and other public facilities. Although a rich body of work exists
+			on the core topic of source separation, we find that rotational
+			motion of the microphones (e.g., a swiveling robot-head) offers
+			complementary gains. We show that rotating the microphone
+			array to the optimal orientation can produce desirable “delay
+			aliasing” between two interferers, causing the two interferers
+			to appear as one. In general, a mixture of K signals becomes a
+			mixture of (K − 1), a mathematically concrete gain. We show
+			that the gain translates well to practice, provided two rotationrelated
+			challenges can be mitigated. This paper is focused on
+			mitigating these challenges and demonstrating the end-to-end
+			performance on a fully functional prototype.We believe that our
+			Rotational Source Separation (RoSS) module could be plugged
+			into actual robot heads or into other devices (like Amazon
+			Show) that are also capable of rotation.
+			
+	<!--		We consider a special case of the classical audio source separation problem, where (1) two microphones are in an 
                     <a href="https://synrg.csl.illinois.edu/earables.html" target="_blank">'earable'</a> device worn at the ears, 
                     and (2) the sources need to be separated by spatial regions around the head. The figure below shows an example 
-                    of spatial regions around the head; our goal is to output one source (or mixture of sources) from each region. 
+                    of spatial regions around the head; our goal is to output one source (or mixture of sources) from each region.   -->
                     
                     <a><img src="img/binaural.jpg" class="center" style="object-fit:contain;
                         width:400px;
                         height:300px"></a>
      
-                    We propose a two-stage self-supervised framework with a pre-processing module in the first stage and a DNN in the second.
-                    This framework does not assume knowledge of the number of sources, and importantly, leverages the spatial cues 
-                    provided by the user's personal head related transfer function (HRTF). Results show superior performance compared 
-                    to various baselines  (including  supervised models with generics HRTFs) and is slightly worse than the best possible
-                    model that uses  both personal HRTF and ground-truth based supervision. 
-                    
-                    <p>Personal HRTFs are not available, hence it is challenging to synthesize training signals that embed the personal HRTF.
-                    One possibility is to utilize real-world binaural recordings from earable devices which would naturally embed the 
-                    user's personal HRTF; of course, the problem is that such real-world recordings are not clean since they are 
-                    typically mixtures of multiple sources. 
-                    We propose a method to clean-up the real-world binaural recordings whenever possible, and show that this 
-                    "somewhat clean" data is adequate to train a region-wise source spearation model. 
-                    When the binaural recording is excessively contaminated, we realibly discard such data.
-                    Hence, our model is self-supervised and leverages the inhherent spatial cues encoded in personalized HRTFs.</p>
-                    
-                <!-- <a><embed src="img/2_stage_pipeline.pdf"  style="object-fit:contain;
-                    width:1000px;
-                    height:370px" class="center" /></a>
-                <a><iframe src="img/2_stage_pipeline.pdf" style="object-fit:contain;
-                    width:1000px;
-                    height:370px" class="center"></iframe></a> -->
-
-                <p>The figure below shows the two-stages of our framework. The first stage accepts real-world binaural recordings as input and employs our proposed spatial clustering method to isolate “relatively clean” spatial sources. These sources are entered into a personal database and random mixtures (of 2, 3, 4, and even 5 sources) are then drawn from the database to generate the binaural training data. This mixture dataset is then used to train a dual-channel TasNet [1] architecture, adapted for region-based separation. The reference signals (for the loss function) are the “somewhat clean” signals in our personal database, hence no clean or labeled signal is necessary.
-                </p>
-
-                <a><img src="img/two_stage.png" style="object-fit:contain;
-                    width:1000px;
-                    height:370px" class="center"></a>
-                <br>  
-
-                <p>The spatial clustering method in stage one is based on the DUET [2] paper, which aims to cluster the time-frequency 
-                    bins by interaural time and level differences, as shown in the figure below. However this approach is challenging 
-                    in the binaural case due to spatial aliasing and unknown number of sources. We improve on DUET 
-                    to solve these problems; the detailed algorithm is available in <a href="https://synrg.csl.illinois.edu/papers/source_separation_icml22.pdf" target="_blank">our paper</a>. 
-                </p>
-                <a><img src="img/hi_cluster.jpg" style="object-fit:contain;
-                    width:500px;
-                    height:375px" class="center"></a>
-
-                <br>
-                <!-- <div class="architecture_caption">Fig. 1. Diagram of SISO SAGRNN. The dotted lines represent the procedures that exist only during training.</div> -->
-
-            </div>
-
-            <div id="clear"></div>
-
-            <div id="results_target" style="position: relative; top: -50px;"></div>
-	        <div id="results">
-                <h2><a class="subtitle">Results</a></h2>
-                <p align="justify">
-                    We intend to characterize the gains from personalised HRTFs (compared to general) and the loss from self-supervision 
-                    (compared to supervised methods where clean labeled data is available). Hence, we compare with several baselines 
-                    as follows:
-                    </p><ul align="justify">
-                        <li>GENERAL - Supervised model where training data is synthesized from generic HRTFs (from the CIPIC [3] HRTF database)</li>
-                        <li>PERSONALIZED* - Supervised training where the personal HRTF (measured for few users) is used to create the training data </li>
-                        <li>SELF - Self-supervised training with "somewhat clean" data, as proposed in this paper </li>
-                        <li>SEMI - Same as SELF but with half of the sources being clean</li>
-                        <li>FEW-SEMI - Same as SELF but with only 1 hour of training</li>
-                    </ul>
-                    Results below show that our self-supervised method closes the gap between GENERAL and the ideal PERSONALIZED* model.
-                <p></p>
-                <a><img src="img/result1.png" style="object-fit:contain;
-                            width:500px;
-                            height:500px"></a>
-                <p>We also compare between region based separation with classical all-source separation. 
-                    We only consider the case when there is only one speaker is the first region and compare the SNR for that single speaker. 
-                    All-source separation model is the same achitecture and is trained assuming known perosnal HRTF and known number of sources. 
-                    Even then, our self-supervised model can achieve a gain of around 25%.</p>
-                <a><img src="img/result2.png" style="object-fit:contain;
-                            width:500px;
-                            height:500px;"></a>
                     
             </div>
 
@@ -2450,27 +2399,30 @@ mjx-stretchy-v mjx-c, mjx-stretchy-h mjx-c {
                 <h1><a class="subtitle">References</a></h1>
                 
                 <p align="justify">
-                    [1] C. Han, Y. Luo, and N. Mesgarani. Real-time binaural speech separation with preserved spatial cues. In <i>IEEE International Conference on Acoustics, Speech and Signal Processing</i>, pages 6404–6408. IEEE, 2020.
+                    [1] T. Kim, H. T. Attias, S.-Y. Lee, and T.-W. Lee, “Blind source separation exploiting higher-order frequency dependencies,” IEEE Transactions on Audio, Speech, and Language Processing, vol. 15, no. 1, pp. 70–79, 2007.
                 </p>
                 <p align="justify">
                     [2] O. Yilmaz, S. Richard. Blind Separation of Speech Mixtures via Time-Frequency Masking. In <i>IEEE Transactions on Signal Processing</i>. 2004.
                 </p>
                 <p align="justify">
-                    [3] R. Algazi, R. Duda, D. Thompson, C. Avendano. THE CIPIC HRTF DATABASE. 2001.
+                    [3] H. Zen, V. Dang, R. Clark, Y. Zhang, R. J. Weiss, Y. Jia, Z. Chen, and Y. Wu, “Libritts: A corpus derived from librispeech for text-tospeech,” arXiv preprint arXiv:1904.02882, 2019.
                 </p>
-            </div>
+		<p align="justify">
+		    [4] “Respeaker 6 mic circular array kit for raspberry pi.” [Online]. Available: https://wiki.seeedstudio.com/.
+		 </p>
+	    </div>
 
         </div>
 
 
 
         <div id="footer">
-            <i>© June 2022 by Zhongweiyang Xu</i>
+            <i>© Sep 2022 by Hyungjoo Seo </i>
 		</div>
 
         <div class="wow fadeIn" data-wow-delay="0.4s" style="visibility: hidden; -webkit-animation-name: none; -moz-animation-name: none; animation-name: none;-webkit-animation-delay: 0.4s; -moz-animation-delay: 0.4s; animation-delay: 0.4s;">
 	        <div class="btn-circle-scroll">
-			    <a href="https://uiuc-earable-computing.github.io/binaural/#top" class="btn-circle">
+			    <a href="https://github.com/uiuc-ss/RoSS/#top" class="btn-circle">
 				    <i class="fa fa-angle-double-up"></i>
 				</a>
 			</div>
