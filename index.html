@@ -497,6 +497,39 @@ mjx-stretchy-v mjx-c, mjx-stretchy-h mjx-c {
                     
             </div>
 
+		
+            <div id="clear"></div>
+
+            <div id="results_target" style="position: relative; top: -50px;"></div>
+	        <div id="results">
+                <h2><a class="subtitle">Results</a></h2>
+                <p align="justify">
+                    We intend to characterize the gains from personalised HRTFs (compared to general) and the loss from self-supervision 
+                    (compared to supervised methods where clean labeled data is available). Hence, we compare with several baselines 
+                    as follows:
+                    </p><ul align="justify">
+                        <li>GENERAL - Supervised model where training data is synthesized from generic HRTFs (from the CIPIC [3] HRTF database)</li>
+                        <li>PERSONALIZED* - Supervised training where the personal HRTF (measured for few users) is used to create the training data </li>
+                        <li>SELF - Self-supervised training with "somewhat clean" data, as proposed in this paper </li>
+                        <li>SEMI - Same as SELF but with half of the sources being clean</li>
+                        <li>FEW-SEMI - Same as SELF but with only 1 hour of training</li>
+                    </ul>
+                    Results below show that our self-supervised method closes the gap between GENERAL and the ideal PERSONALIZED* model.
+                <p></p>
+                <a><img src="img/result1.png" style="object-fit:contain;
+                            width:500px;
+                            height:500px"></a>
+                <p>We also compare between region based separation with classical all-source separation. 
+                    We only consider the case when there is only one speaker is the first region and compare the SNR for that single speaker. 
+                    All-source separation model is the same achitecture and is trained assuming known perosnal HRTF and known number of sources. 
+                    Even then, our self-supervised model can achieve a gain of around 25%.</p>
+                <a><img src="img/result2.png" style="object-fit:contain;
+                            width:500px;
+                            height:500px;"></a>
+                    
+            </div>
+		
+		
             <div id="demos_target" style="position: relative; top: -50px;"></div>
             <div id="demos">
                 <h2><a class="subtitle">Audio Demo</a></h2>
