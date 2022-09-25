@@ -466,40 +466,36 @@ mjx-stretchy-v mjx-c, mjx-stretchy-h mjx-c {
 
                 <p>We considers the problem of under-determined audio source separation problem [1] where there are more sources K than microphones M (K > M). 
 			The goal is to isolate a target audio signal (say Alice’s speech) from a mixture of multiple interfering signals (e.g., when many people are talking)
-			via rotational motion of microphones arrays. (e.g. a swiveling robot-head, rotating robot vacuums)
+			via rotational motion of microphones arrays. (e.g. a swiveling robot-head, rotating robot vacuums) <br>
 			Note that, under-determined source separation problem is a challenging problem because mixing process is not linearly invertible
 			and source signals cannot be obtained by inverting mixting matrix even if we precisely know the mixing matrix. 
 			This is because information is lost in the mixing process [1] that it is difficult to recover the content of any of 
-			the sources only from microphone meausurements.
+			the sources only from microphone meausurements. <br>
 			 In our work, we show that rotating 2-microphone array to the optimal orientation can produce desirable “delay aliasing” between two interferers, 
 			causing the two interferers to appear as one. In general, a mixture of K signals becomes a
-			mixture of (K − 1), a mathematically concrete gain. 
+			mixture of (K − 1), a mathematically concrete gain. <br>
 			
 			
                     
-                    <a><img src="img/RoSS_concept.png" class="center" style="object-fit:contain;
-                        width:400px;
-                        height:300px"></a>
+                    <a><img src="img/RoSS_concept.png" class="center"></a>
      
 
 Consider an example scenario where there is a pair of microphones at the center, surrounded by 3 indepdendent audio sources T, A, and B. 
-Our key idea is to rotate these microphones to align the two interferers to enhance the remaining signals which contain a target signal.  
+Our key idea is to rotate these microphones to align the two interferers to enhance the remaining signals which contain a target signal.  <br>
 
 As the microphone rotates, the angle of arrival directions (so called AoA) of each source keep changing.
 This means, for any given signal, the relative delay, so called Internaural-Time-Difference(ITD) or Time-difference-of-Arrival(TDOA), between the two microphones 
-			is different for different microphone orientations.
+			is different for different microphone orientations. <br>
 Now, at certain microphone orientations, ITD of A and B become the same. 
 			(This point exists for any shape of microphones but for symmetric microphones this happens when 
-			the microphone bisects the two sources A and B)
+			the microphone bisects the two sources A and B) <br>
 			
 			In fact, this is a form of aliasing in delay since from the microphone’s perspective, the sources A and B look identical in terms of AoA.
 			Thus, in this orientation, we mathematically have only two chunk of source signals, one is target signal T and the other is mixture of A and B.
 			Now it becomes 2 source 2 microphone problem where the system is not any more under-determined so that linear the which now became easier problem to solve. 
-
-			Figure below shows the case of aligning two interferers to bring the system with K=3, M=2 to K=2, M=2 to enhance the target source.
-			<a><img src="img/Sources_combine_ICRA.png" class="center" style="object-fit:contain;
-                        width:400px;
-                        height:300px"></a>
+<br>
+			Figure below shows the case of aligning two interferers to bring the system with K=3, M=2 to K=2, M=2 to enhance the target source. 
+			<a><img src="img/Sources_combine_ICRA.png" class="center"></a>
             </div>
 
 		
