@@ -551,17 +551,19 @@ as RoSS with K sources has similar performance with K-1 sources without RoSS.
                 <h2><a class="subtitle">Audio Demo</a></h2>
 
                 <p align="justify">
-                    We show demo results in 4 different settings (See Table below) using a custom-built rotary platform mounted by ReSpeaker Microphone array [5].
-			For speech sources, we used LibriTTS dataset [4]. 
+                    We show demo results in 4 different settings (See Table below where (b)-Lab, (c)-Park, (d)-Testing, (e)-Room) using a custom-built rotary platform mounted by ReSpeaker Microphone array [5].
+			For speech sources, we used LibriTTS dataset [4].
 			
 			<a><img src="img/Setting_table.png" class="center" style='height: 50%; width: 50%; object-fit: contain'></a>
 			<a><img src="img/Experiment_Pics_ICRA.png" class="center" style='height: 80%; width: 80%; object-fit: contain'></a>
 			
-			Here are some (binaural) audio samples for listening. The "mixture" is the aggregate of all sounds as recorded by the 
-                    earphone. The rows denote each region and the columns denote the ground truth signal in that region, followed by the 
-                    various methods being compared. For example, row:R1 and col:Ground is the audio of the ground truth signal 
-                    arriving from region R1. This clip could be a single source, a mixture of few sources, or could be empty, depending on
-                    the signals present in this region. 
+			
+			<br>
+			&ensp; Here are separated results with audio samples for listening. The "Raw Mixture" is the aggregate of all sounds as recorded by the 
+                    microphone before any processing. Each row denote K signals of interest while each column denotes the type of results containing
+			ground truth signal to be recovered followed by IVA, DUET, and RoSS, Informed RoSS. 
+			For example, row:S1 and col:Ground is the audio of the ground truth signal 1
+			
                     <!-- <ul align="justify" >
                         <li>Unprocessed Mixture - original binaural sound mixture</li>
                         <li>MIMO TasNet - refer to the approach in [2], where the network configurations are slightly changed such that the model is noncausal and has a comparable size to our model</li>
