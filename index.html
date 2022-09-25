@@ -482,15 +482,14 @@ mjx-stretchy-v mjx-c, mjx-stretchy-h mjx-c {
                     <a><img src="img/RoSS_concept.png" class="center"></a>
      
 
-&ensp; Consider an example scenario where there is a pair of microphones at the center, surrounded by 3 indepdendent audio sources T, A, and B. 
+&ensp; Consider an example scenario in a figure below (a) where there is a pair of microphones at the center, surrounded by 3 indepdendent audio sources Target, 
+			Interference A and B. 
 Our key idea is to rotate these microphones to align the two interferers to enhance the remaining signals which contain a target signal.  
 			<br>
 
 &ensp; As the microphone rotates, the angle of arrival directions (so called AoA) of each source keep changing.
 This means, for any given signal, the relative delay, so called Internaural-Time-Difference(ITD) or Time-difference-of-Arrival(TDOA), between the two microphones 
-			is different for different microphone orientations. 
-			<br>
-&ensp; Now, at certain microphone orientations, ITD of A and B become the same. 
+			is different for different microphone orientations. Now, at certain microphone orientations, ITD of A and B become the same. 
 			(This point exists for any shape of microphones but for symmetric microphones this happens when 
 			the microphone bisects the two sources A and B) 
 			<br>
@@ -499,10 +498,23 @@ This means, for any given signal, the relative delay, so called Internaural-Time
 			Thus, in this orientation, we mathematically have only two chunk of source signals, one is target signal T and the other is mixture of A and B.
 			Now it becomes 2 source 2 microphone problem where the system is not any more under-determined so that linear the which now became easier problem to solve. 
 <br>
-			&ensp; Figure below shows the case of aligning two interferers to bring the system with K=3, M=2 to K=2, M=2 to enhance the target source. 
+			&ensp; Figure below (b)(c) shows the case of aligning two interferers to bring the system with K=3, M=2 to K=2, M=2 to enhance the target source. 
 			<a><img src="img/Sources_combine_ICRA.png" class="center" style='height: 100%; width: 100%; object-fit: contain'></a>
-            </div>
-
+            
+	 After such rotational alignment, existing blind source separation (BSS) or Under-determined BSS techniques such as ICA(IVA) [2], DUET [3] can be performed
+			to enhance the target source. Our prposed idea is complementatry, hence comparible, with most source speration algorithms.
+		
+			<br>
+			&ensp What if we don't know the angle-of-arrivals as a prior? Good news is rotational motion itself provides AoA information because ITD and AoA 
+			are in cosine relation. Our proposed algorithm RoSS gathers ITD information of K sources by rotating around initially to track the change of ITD values which should 
+follow K cosine curves, ideally, if rotation is circular. By fitting the curves, we can identify AoA values of K sources. 
+			
+			<a><img src="img/K_Src_AoA_Noisy.png" class="center" style='height: 100%; width: 100%; object-fit: contain'></a>
+			As this example figure above shows, by fitting cosine curves into sampled ITD histograms, AoA spectrum can be acquired. 
+And primary peaks of AoA spectrum approache true AoA values as th rotation number goes up. Thus, after initial rotation steps RoSS identifies AoA values first. 
+			Then, based on acquired AoA values, interference alignment can be performed to separate out target signal. 
+		</div>
+	
 		
             <div id="clear"></div>
 
@@ -510,7 +522,21 @@ This means, for any given signal, the relative delay, so called Internaural-Time
 	        <div id="results">
                 <h2><a class="subtitle">Results</a></h2>
                 <p align="justify">
-                    We intend to characterize the gains from personalised HRTFs (compared to general) and the loss from self-supervision 
+	     <section>
+                <h1>AoA Estimation</h1>
+		      &ensp For AoA estimation result,    
+		     
+                <h1>Source Separation</h1>
+            </section>		
+	
+ 
+		&ensp Since our idea is complementary to existing UBSS/BSS algorithms, we compare our results using one of the three popular algorithms below: <br>		
+			(i) Natural gradient-based IVA(independent vector analysis) - A popular variant of wideband ICA(independent component analysis) [2] <br>
+			(ii) DUET [3] <br>
+			(iii) MVDR (Minimum Variance Distortionless Response) Adaptive Beamformer <br>
+			We intend to characterize the gains from personalised HRTFs (compared to general) and the loss from self-supervision 
+			
+			
                     (compared to supervised methods where clean labeled data is available). Hence, we compare with several baselines 
                     as follows:
                     </p><ul align="justify">
