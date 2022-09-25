@@ -536,46 +536,28 @@ And primary peaks of AoA spectrum approache true AoA values as th rotation numbe
 			(i) Natural gradient-based IVA(independent Vector Analysis) - A variant of wideband ICA [2] <br>
 			(ii) DUET [3] <br>
 			(iii) Informed MVDR (Minimum Variance Distortionless Response) Adaptive Beamformer <br>
-			We intend to characterize the gains from personalised HRTFs (compared to general) and the loss from self-supervision 
-		     <a><img src="img/reverb_ICRA.png" class="center" style='height: 50%; width: 50%; object-fit: contain'></a>
-		     
+			
+		     <a><img src="img/reverb_ICRA.png" class="center" style='height: 70%; width: 70%; object-fit: contain'></a>
+		     As can be seen, RoSS provides source enhancement gain (>5dB of SI-SDR) to all other state-of-the-art UBSS/BSS algorithms. 
+		     This can be thought of as "Motion provides additional degree of freedom (DoF) even when K>M" and about 1 DoF is observed
+as RoSS with K sources has similar performance with K-1 sources without RoSS.
+
             </section>		
 	
- 
-		
-			
-			
-                    (compared to supervised methods where clean labeled data is available). Hence, we compare with several baselines 
-                    as follows:
-                    </p><ul align="justify">
-                        <li>GENERAL - Supervised model where training data is synthesized from generic HRTFs (from the CIPIC [3] HRTF database)</li>
-                        <li>PERSONALIZED* - Supervised training where the personal HRTF (measured for few users) is used to create the training data </li>
-                        <li>SELF - Self-supervised training with "somewhat clean" data, as proposed in this paper </li>
-                        <li>SEMI - Same as SELF but with half of the sources being clean</li>
-                        <li>FEW-SEMI - Same as SELF but with only 1 hour of training</li>
-                    </ul>
-                    Results below show that our self-supervised method closes the gap between GENERAL and the ideal PERSONALIZED* model.
-                <p></p>
-                <a><img src="img/result1.png" style="object-fit:contain;
-                            width:500px;
-                            height:500px"></a>
-                <p>We also compare between region based separation with classical all-source separation. 
-                    We only consider the case when there is only one speaker is the first region and compare the SNR for that single speaker. 
-                    All-source separation model is the same achitecture and is trained assuming known perosnal HRTF and known number of sources. 
-                    Even then, our self-supervised model can achieve a gain of around 25%.</p>
-                <a><img src="img/result2.png" style="object-fit:contain;
-                            width:500px;
-                            height:500px;"></a>
-                    
             </div>
-		
-		
+
             <div id="demos_target" style="position: relative; top: -50px;"></div>
             <div id="demos">
                 <h2><a class="subtitle">Audio Demo</a></h2>
 
                 <p align="justify">
-                    Here are some (binaural) audio samples for listening. The "mixture" is the aggregate of all sounds as recorded by the 
+                    We show demo results in 4 different settings (See Table below) using a custom-built rotary platform mounted by ReSpeaker Microphone array [5].
+			For speech sources, we used LibriTTS dataset [4]. 
+			
+			<a><img src="img/Setting_table.png" class="center" style='height: 70%; width: 70%; object-fit: contain'></a>
+			<a><img src="img/Experiment_Pics_ICRA.png" class="center" style='height: 30%; width: 30%; object-fit: contain'></a>
+			
+			Here are some (binaural) audio samples for listening. The "mixture" is the aggregate of all sounds as recorded by the 
                     earphone. The rows denote each region and the columns denote the ground truth signal in that region, followed by the 
                     various methods being compared. For example, row:R1 and col:Ground is the audio of the ground truth signal 
                     arriving from region R1. This clip could be a single source, a mixture of few sources, or could be empty, depending on
