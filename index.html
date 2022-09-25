@@ -505,12 +505,14 @@ This means, for any given signal, the relative delay, so called Internaural-Time
 			to enhance the target source. Our prposed idea is complementatry, hence comparible, with most source speration algorithms.
 		
 			<br>
-			&ensp What if we don't know the angle-of-arrivals as a prior? Good news is rotational motion itself provides AoA information because ITD and AoA 
+			&ensp; What if we don't know the angle-of-arrivals as a prior? Good news is rotational motion itself provides AoA information because ITD and AoA 
 			are in cosine relation. Our proposed algorithm RoSS gathers ITD information of K sources by rotating around initially to track the change of ITD values which should 
 follow K cosine curves, ideally, if rotation is circular. By fitting the curves, we can identify AoA values of K sources. 
 			
-			<a><img src="img/K_Src_AoA_Noisy.png" class="center" style='height: 100%; width: 100%; object-fit: contain'></a>
-			As this example figure above shows, by fitting cosine curves into sampled ITD histograms, AoA spectrum can be acquired. 
+			<a><img src="img/K_Src_AoA_Noisy.png" class="center" style="object-fit:contain;
+                            width:500px;
+                            height:500px"></a>
+			As this example result above shows, by fitting cosine curves into sampled ITD histograms, AoA spectrum can be acquired. 
 And primary peaks of AoA spectrum approache true AoA values as th rotation number goes up. Thus, after initial rotation steps RoSS identifies AoA values first. 
 			Then, based on acquired AoA values, interference alignment can be performed to separate out target signal. 
 		</div>
@@ -523,15 +525,15 @@ And primary peaks of AoA spectrum approache true AoA values as th rotation numbe
                 <h2><a class="subtitle">Results</a></h2>
                 <p align="justify">
 	     <section>
-                <h1>AoA Estimation</h1>
-		      &ensp For AoA estimation result,    
+                <h3>AoA Estimation</h3>
+		      &ensp; For AoA estimation result,    
 		     
-                <h1>Source Separation</h1>
+                <h3>Source Separation</h3>
             </section>		
 	
  
 		&ensp Since our idea is complementary to existing UBSS/BSS algorithms, we compare our results using one of the three popular algorithms below: <br>		
-			(i) Natural gradient-based IVA(independent vector analysis) - A popular variant of wideband ICA(independent component analysis) [2] <br>
+			(i) Natural gradient-based IVA(independent Vector Analysis) - A variant of wideband ICA [2] <br>
 			(ii) DUET [3] <br>
 			(iii) MVDR (Minimum Variance Distortionless Response) Adaptive Beamformer <br>
 			We intend to characterize the gains from personalised HRTFs (compared to general) and the loss from self-supervision 
