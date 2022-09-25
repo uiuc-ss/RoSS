@@ -525,18 +525,24 @@ And primary peaks of AoA spectrum approache true AoA values as th rotation numbe
                 <h2><a class="subtitle">Results</a></h2>
                 <p align="justify">
 	     <section>
-                <h3>AoA Estimation</h3>
-		      &ensp; For AoA estimation result,    
+		     <h4><b>AoA Estimation</b></h4>
+		      &ensp; For AoA estimation result, we rotate the 2-microphone array multiple times in various environments and source settings.
+		     As the location gets more reverberant, more rotation steps are needed to have a good AoA estimation accuracy.
+		     <a><img src="img/AoA_performance_ICRA_v4.png" class="center" style='height: 100%; width: 100%; object-fit: contain'></a>
 		     
-                <h3>Source Separation</h3>
+                      <h4><b>Source Separation</b></h4>
+		     &ensp; Since our proposed idea of aligning interference is complementary to existing UBSS/BSS algorithms, 
+		     we compare our results using one of the three popular algorithms below: <br>		
+			(i) Natural gradient-based IVA(independent Vector Analysis) - A variant of wideband ICA [2] <br>
+			(ii) DUET [3] <br>
+			(iii) Informed MVDR (Minimum Variance Distortionless Response) Adaptive Beamformer <br>
+			We intend to characterize the gains from personalised HRTFs (compared to general) and the loss from self-supervision 
+		     <a><img src="img/reverb_ICRA.png" class="center" style='height: 50%; width: 50%; object-fit: contain'></a>
+		     
             </section>		
 	
  
-		&ensp Since our idea is complementary to existing UBSS/BSS algorithms, we compare our results using one of the three popular algorithms below: <br>		
-			(i) Natural gradient-based IVA(independent Vector Analysis) - A variant of wideband ICA [2] <br>
-			(ii) DUET [3] <br>
-			(iii) MVDR (Minimum Variance Distortionless Response) Adaptive Beamformer <br>
-			We intend to characterize the gains from personalised HRTFs (compared to general) and the loss from self-supervision 
+		
 			
 			
                     (compared to supervised methods where clean labeled data is available). Hence, we compare with several baselines 
