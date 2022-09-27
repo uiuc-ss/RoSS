@@ -484,9 +484,6 @@ mjx-stretchy-v mjx-c, mjx-stretchy-h mjx-c {
                                     <source src="videos/Submission_Final.mp4" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
-                                <div class="center">
-                                    <b>3 RoSS 3-min Introduction </b>
-                                </div>
 
                     </div>
                     </div>	    
@@ -542,7 +539,7 @@ This means, for any given signal, the relative delay, so called Internaural-Time
 			Now it becomes 2 source 2 microphone problem where the system is not any more under-determined so that linear the which now became easier problem to solve. 
 <br>
 			&ensp; Figure below (b)(c) shows the case of aligning two interferers to bring the system with K=3, M=2 to K=2, M=2 to enhance the target source. 
-			<a><img src="img/Sources_combine_ICRA.png" class="center" style='height: 100%; width: 100%; object-fit: contain'></a>
+			<a><img src="img/Sources_combine_ICRA.png" class="center" style='height: 80%; width: 80%; object-fit: contain'></a>
             
 	 After such rotational alignment, existing blind source separation (BSS) or Under-determined BSS techniques such as ICA(IVA) [2], DUET [3] can be performed
 			to enhance the target source. Our prposed idea is complementatry, hence comparible, with most source speration algorithms.
@@ -552,7 +549,7 @@ This means, for any given signal, the relative delay, so called Internaural-Time
 			are in cosine relation. Our proposed algorithm RoSS gathers ITD information of K sources by rotating around initially to track the change of ITD values which should 
 follow K cosine curves, ideally, if rotation is circular. By fitting the curves, we can identify AoA values of K sources. 
 			
-			<a><img src="img/K_AoA_ICRA_web.png" class="center" style='height: 100%; width: 100%; object-fit: contain'></a>
+			<a><img src="img/K_AoA_ICRA_web.png" class="center" style='height: 80%; width: 80%; object-fit: contain'></a>
 			As this example result above shows, by fitting cosine curves into sampled ITD histograms, AoA spectrum can be acquired. 
 And primary peaks of AoA spectrum approache true AoA values as th rotation number goes up. Thus, after initial rotation steps RoSS identifies AoA values first. 
 			Then, based on acquired AoA values, interference alignment can be performed to separate out target signal. 
@@ -578,7 +575,7 @@ And primary peaks of AoA spectrum approache true AoA values as th rotation numbe
 			(ii) DUET [3] <br>
 			(iii) Informed MVDR (Minimum Variance Distortionless Response) Adaptive Beamformer <br>
 			
-		     <a><img src="img/reverb_ICRA.png" class="center" style='height: 70%; width: 70%; object-fit: contain'></a>
+		     <a><img src="img/reverb_ICRA.png" class="center" style='height: 50%; width: 50%; object-fit: contain'></a>
 		     As can be seen, RoSS provides source enhancement gain (>5dB of SI-SDR) to all other state-of-the-art UBSS/BSS algorithms. 
 		     This can be thought of as "Motion provides additional degree of freedom (DoF) even when K>M" and about 1 DoF is observed
 as RoSS with K sources has similar performance with K-1 sources without RoSS.
@@ -595,21 +592,15 @@ as RoSS with K sources has similar performance with K-1 sources without RoSS.
                     We show demo results in 4 different settings (See Table below where (b)-Lab, (c)-Park, (d)-Testing, (e)-Room) using a custom-built rotary platform mounted by ReSpeaker Microphone array [5].
 			For speech sources, we used LibriTTS dataset [4].
 			
-			<a><img src="img/Setting_table.png" class="center" style='height: 50%; width: 50%; object-fit: contain'></a>
+			<a><img src="img/Setting_table.png" class="center" style='height: 30%; width: 30%; object-fit: contain'></a>
 			<a><img src="img/Experiment_Pics_ICRA.png" class="center" style='height: 80%; width: 80%; object-fit: contain'></a>
 
 			
-			
-                    <!-- <ul align="justify" >
-                        <li>Unprocessed Mixture - original binaural sound mixture</li>
-                        <li>MIMO TasNet - refer to the approach in [2], where the network configurations are slightly changed such that the model is noncausal and has a comparable size to our model</li>
-                        <li>MIMO SAGRNN - refer to our proposed approach</li>
-                    </ul> -->
                 </p>
 
 
                 <p>
-                    <a class="subtitle">(Video Demonstrations)</a>
+		    <h3><a class="subtitle">[Video Demonstrations]</a></h3>
                     <br>
                     &ensp; Here are video demonstrations for the system in practice. The first set of videos are the indoor demonstrations of AoA estimation
                     and Source Separation.
@@ -673,8 +664,464 @@ as RoSS with K sources has similar performance with K-1 sources without RoSS.
                 </p>
  
 
+<!-- Simulation Started   -->
+	    
+
 			<p>
-			<h4><a class="subtitle">(Ourdoor Park Measurement Result)</a></h2>
+			<h3><a class="subtitle">[Room Impulse Response Simulation Result]</a></h3>
+		    </p>
+                <h4><b><p style="color:red;font-size:18px;">Three-Source Mixtures (K=3) (Repeated Sound Sources)</p></b></h4>
+                <table class="audio_demos">
+                    <thead>
+                        <tr>
+                            <th style="text-align:center;">Mixture (No reverb)</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr style="border-top:1px solid black">
+                            <!-- <td rowspan="2">
+                                <b>A</b>
+                            </td> -->
+                            <td>
+                                <audio controls="" class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="result_data/Sim_offline_K3_0ms/Mixture.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                            
+                        </tr>
+
+                    </tbody>
+                </table>
+
+
+                <table class="audio_demos">
+                    <thead>
+                        <tr>
+                            <th style="text-align:center;">Target</th>
+                            <th style="text-align:center;">Ground</th>
+                            <th style="text-align:center;">IVA</th>
+                            <th style="text-align:center;">DUET</th>
+                            <th style="text-align:center;">Beamformer</th>
+                            <th style="text-align:center;">RoSS</th>
+                         
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr style="border-top:1px solid black">
+                            <td>
+                                <b>S1</b>
+                            </td>
+                            <td>
+                                <audio controls="" class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="result_data/Sim_offline_K3_0ms/Ground_S1.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls="" class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="result_data/Sim_offline_K3_0ms/IVA_S1.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls="" class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="result_data/Sim_offline_K3_0ms/DUET_S1.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls="" class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="result_data/Sim_offline_K3_0ms/MV_S1.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls="" class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="result_data/Sim_offline_K3_0ms/RoSS_S1.wav" type="audio/wav">
+                                </audio>
+                            </td>
+
+                        </tr>
+			<tr style="border-top:1px solid black">
+                            <td>
+                                <b>S2</b>
+                            </td>
+                            <td>
+                                <audio controls="" class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="result_data/Sim_offline_K3_0ms/Ground_S2.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls="" class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="result_data/Sim_offline_K3_0ms/IVA_S2.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls="" class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="result_data/Sim_offline_K3_0ms/DUET_S2.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls="" class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="result_data/Sim_offline_K3_0ms/MV_S2.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls="" class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="result_data/Sim_offline_K3_0ms/RoSS_S2.wav" type="audio/wav">
+                                </audio>
+                            </td>
+
+                        </tr>
+			<tr style="border-top:1px solid black">
+                            <td>
+                                <b>S3</b>
+                            </td>
+                            <td>
+                                <audio controls="" class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="result_data/Sim_offline_K3_0ms/Ground_S3.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls="" class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="result_data/Sim_offline_K3_0ms/IVA_S3.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls="" class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="result_data/Sim_offline_K3_0ms/DUET_S3.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls="" class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="result_data/Sim_offline_K3_0ms/MV_S3.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls="" class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="result_data/Sim_offline_K3_0ms/RoSS_S3.wav" type="audio/wav">
+                                </audio>
+                            </td>
+
+                        </tr>			
+                    </tbody>
+                </table>
+ <hr>
+                      <table class="audio_demos">
+                    <thead>
+                        <tr>
+                            <th style="text-align:center;">Mixture (450ms Reverb Time)</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr style="border-top:1px solid black">
+                            <!-- <td rowspan="2">
+                                <b>A</b>
+                            </td> -->
+                            <td>
+                                <audio controls="" class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="result_data/Sim_offline_K3_450ms/Mixture.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                            
+                        </tr>
+
+                    </tbody>
+                </table>
+
+
+                <table class="audio_demos">
+                    <thead>
+                        <tr>
+                            <th style="text-align:center;">Target</th>
+                            <th style="text-align:center;">Ground</th>
+                            <th style="text-align:center;">IVA</th>
+                            <th style="text-align:center;">DUET</th>
+                            <th style="text-align:center;">Beamformer</th>
+                            <th style="text-align:center;">RoSS</th>
+                         
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr style="border-top:1px solid black">
+                            <td>
+                                <b>S1</b>
+                            </td>
+                            <td>
+                                <audio controls="" class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="result_data/Sim_offline_K3_450ms/Ground_S1.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls="" class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="result_data/Sim_offline_K3_450ms/IVA_S1.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls="" class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="result_data/Sim_offline_K3_450ms/DUET_S1.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls="" class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="result_data/Sim_offline_K3_450ms/MV_S1.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls="" class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="result_data/Sim_offline_K3_450ms/RoSS_S1.wav" type="audio/wav">
+                                </audio>
+                            </td>
+
+                        </tr>
+			<tr style="border-top:1px solid black">
+                            <td>
+                                <b>S2</b>
+                            </td>
+                            <td>
+                                <audio controls="" class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="result_data/Sim_offline_K3_450ms/Ground_S2.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls="" class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="result_data/Sim_offline_K3_450ms/IVA_S2.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls="" class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="result_data/Sim_offline_K3_450ms/DUET_S2.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls="" class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="result_data/Sim_offline_K3_450ms/MV_S2.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls="" class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="result_data/Sim_offline_K3_450ms/RoSS_S2.wav" type="audio/wav">
+                                </audio>
+                            </td>
+
+                        </tr>
+			<tr style="border-top:1px solid black">
+                            <td>
+                                <b>S3</b>
+                            </td>
+                            <td>
+                                <audio controls="" class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="result_data/Sim_offline_K3_450ms/Ground_S3.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls="" class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="result_data/Sim_offline_K3_450ms/IVA_S3.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls="" class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="result_data/Sim_offline_K3_450ms/DUET_S3.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls="" class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="result_data/Sim_offline_K3_450ms/MV_S3.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls="" class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="result_data/Sim_offline_K3_450ms/RoSS_S3.wav" type="audio/wav">
+                                </audio>
+                            </td>
+
+                        </tr>			
+                    </tbody>
+                </table>
+	
+<hr>
+                <h4><b><p style="color:red;font-size:18px;">Four-Source Mixtures (K=4) (Repeated Sound Sources)</p></b></h4>
+                <table class="audio_demos">
+                    <thead>
+                        <tr>
+                            <th style="text-align:center;">Mixture (450ms Reverb Time)</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr style="border-top:1px solid black">
+                            <!-- <td rowspan="2">
+                                <b>A</b>
+                            </td> -->
+                            <td>
+                                <audio controls="" class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="result_data/Sim_offline_K4_450ms/Mixture.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                            
+                        </tr>
+
+                    </tbody>
+                </table>
+
+
+                <table class="audio_demos">
+                    <thead>
+                        <tr>
+                            <th style="text-align:center;">Target</th>
+                            <th style="text-align:center;">Ground</th>
+                            <th style="text-align:center;">IVA</th>
+                            <th style="text-align:center;">DUET</th>
+                            <th style="text-align:center;">Beamformer</th>
+                            <th style="text-align:center;">RoSS</th>
+                         
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr style="border-top:1px solid black">
+                            <td>
+                                <b>S1</b>
+                            </td>
+                            <td>
+                                <audio controls="" class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="result_data/Sim_offline_K4_450ms/Ground_S1.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls="" class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="result_data/Sim_offline_K4_450ms/IVA_S1.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls="" class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="result_data/Sim_offline_K4_450ms/DUET_S1.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls="" class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="result_data/Sim_offline_K4_450ms/MV_S1.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls="" class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="result_data/Sim_offline_K4_450ms/RoSS_S1.wav" type="audio/wav">
+                                </audio>
+                            </td>
+
+                        </tr>
+			<tr style="border-top:1px solid black">
+                            <td>
+                                <b>S2</b>
+                            </td>
+                            <td>
+                                <audio controls="" class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="result_data/Sim_offline_K4_450ms/Ground_S2.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls="" class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="result_data/Sim_offline_K4_450ms/IVA_S2.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls="" class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="result_data/Sim_offline_K4_450ms/DUET_S2.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls="" class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="result_data/Sim_offline_K4_450ms/MV_S2.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls="" class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="result_data/Sim_offline_K4_450ms/RoSS_S2.wav" type="audio/wav">
+                                </audio>
+                            </td>
+
+                        </tr>
+			<tr style="border-top:1px solid black">
+                            <td>
+                                <b>S3</b>
+                            </td>
+                            <td>
+                                <audio controls="" class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="result_data/Sim_offline_K4_450ms/Ground_S3.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls="" class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="result_data/Sim_offline_K4_450ms/IVA_S3.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls="" class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="result_data/Sim_offline_K4_450ms/DUET_S3.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls="" class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="result_data/Sim_offline_K4_450ms/MV_S3.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls="" class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="result_data/Sim_offline_K4_450ms/RoSS_S3.wav" type="audio/wav">
+                                </audio>
+                            </td>
+
+                        </tr>	
+			<tr style="border-top:1px solid black">
+                            <td>
+                                <b>S4</b>
+                            </td>
+                            <td>
+                                <audio controls="" class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="result_data/Sim_offline_K4_450ms/Ground_S4.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls="" class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="result_data/Sim_offline_K4_450ms/IVA_S4.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls="" class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="result_data/Sim_offline_K4_450ms/DUET_S4.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls="" class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="result_data/Sim_offline_K4_450ms/MV_S4.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls="" class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="result_data/Sim_offline_K4_450ms/RoSS_S4.wav" type="audio/wav">
+                                </audio>
+                            </td>
+
+                        </tr>	
+                    </tbody>
+                </table>
+
+		     <hr>
+
+		
+		
+		
+	
+      <!--  Simulation finished -->
+	    
+	    
+	   <!--  Outdoor Park started -->    
+	    
+	    
+	    
+	    
+			<p>
+			<h3><a class="subtitle">[Ourdoor Park Measurement Result]</a></h3>
 		    </p>
                 <h4><b><p style="color:red;font-size:18px;">Three-Source Mixtures (K=3) (different time point samples below)</p></b></h4>
                 <table class="audio_demos">
