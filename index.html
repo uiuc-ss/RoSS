@@ -62,20 +62,26 @@
 .CtxtMenu_Menu .CtxtMenu_MenuClose {  top:-10px; left:-10px}
 </style>
  <style id="MJX-CHTML-styles">
-    <style >
-    * {
-        box-sizing: border-box;
-    }
+     <style >
+     * {
+         box-sizing: border-box;
+         align-items: center;
+         justify-content: center;
+     }
 
-    .row {
-        display: flex;
-    }
+     .row {
+         display: flex;
+         flex-wrap: wrap;
+         align-items: center;
+         justify-content: center;
+         padding: 0 4px;
+     }
 
-    /* Create three equal columns that sits next to each other */
-    .column {
-        flex: 33.33%;
-        padding: 5px;
-    }
+     /* Create two equal columns that sits next to each other */
+     .column {
+         flex: 50%;
+         padding: 0 4px;
+     }
 </style>
 <style id="MJX-CHTML-styles">
 mjx-container[jax="CHTML"] {
@@ -593,44 +599,57 @@ as RoSS with K sources has similar performance with K-1 sources without RoSS.
                     <br>
                 </p>
                 <p>
-                    <div class="row">
-                        <div class="column">
-                            <video width="640" height="480" controls>
-                                <source src="videos/K3IndoorAoA.mp4" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                            <p>3 Source AoA</p>
-                        </div>
-                        <div class="column">
-                            <video width="640" height="480" controls>
-                                <source src="videos/K3IndoorSS.mp4" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                            <p>3 Source Separation</p>
-                        </div>
-                        <div class="column">
-                            <video width="640" height="480" controls>
-                                <source src="videos/K4AoAIndoor.mp4" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                            <p>4 Source AoA</p>
-                        </div>
-                        <div class="column">
-                            <video width="640" height="480" controls>
-                                <source src="videos/K4IndoorSS.mp4" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                            <p>4 Source Separation</p>
+                    <div class="center">
+                        <div class="row">
+                            <div class="column">
+                                <video width="640" height="480" controls>
+                                    <source src="videos/K3IndoorAoA.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                <div class="center">
+                                    <b>3 Source AoA</b>
+                                </div>
+                                <div class="column">
+                                    <video width="640" height="480" controls>
+                                        <source src="videos/K3IndoorSS.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <div class="center">
+                                        <b>3 Source Separation</b>
+                                    </div>
+                                </div>
+                            </div>
+                    <br>
+                    <div class="center">
+                        <div class="row">
+                            <div class="column">
+                                <video width="640" height="480" controls>
+                                    <source src="videos/K4AoAIndoor.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                <div class="center">
+                                    <b>4 Source AoA</b>
+                                </div>
+                            </div>
+                            <div class="column">
+                                <video width="640" height="480" controls>
+                                    <source src="videos/K4IndoorSS.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                <div class="center">
+                                    <b>4 Source Separation</b>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    <br>
-                    &ensp; Here are separated results with audio samples for listening. The "Raw Mixture" is the aggregate of all sounds as recorded by the
-                    microphone before any processing. Each row denote K signals of interest (target source) while each column denotes the type of results containing
-                    ground truth signal to be recovered followed by IVA, DUET, adaptive LCMV(wideband MVDR) beamformer, and RoSS(at alignment angle).
-                    For example, row:S1 and col:Ground is the audio of the ground truth signal 1.
+                        <br>
+                        &ensp; Here are separated results with audio samples for listening. The "Raw Mixture" is the aggregate of all sounds as recorded by the
+                        microphone before any processing. Each row denote K signals of interest (target source) while each column denotes the type of results containing
+                        ground truth signal to be recovered followed by IVA, DUET, adaptive LCMV(wideband MVDR) beamformer, and RoSS(at alignment angle).
+                        For example, row:S1 and col:Ground is the audio of the ground truth signal 1.
 
-                    <br>
+                        <br>
                 </p>
  
 
