@@ -60,7 +60,26 @@
 .CtxtMenu_SelectionBox {  padding: 0em; max-height:20em; max-width: none;  background-color:#FFFFFF;}
 .CtxtMenu_SelectionDivider {  clear: both; border-top: 2px solid #000000;}
 .CtxtMenu_Menu .CtxtMenu_MenuClose {  top:-10px; left:-10px}
-</style><style id="MJX-CHTML-styles">
+</style>
+ <style id="MJX-CHTML-styles">
+    <style >
+    * {
+        box-sizing: border-box;
+    }
+
+    .row {
+        display: flex;
+    }
+
+    /* Create three equal columns that sits next to each other */
+    .column {
+        flex: 33.33%;
+        padding: 5px;
+    }
+    .videocaption {
+        display: block;
+    }
+</style>
 mjx-container[jax="CHTML"] {
   line-height: 0;
 }
@@ -528,7 +547,7 @@ And primary peaks of AoA spectrum approache true AoA values as th rotation numbe
 		     <h4><b>AoA Estimation</b></h4>
 		      &ensp; For AoA estimation result, we rotate the 2-microphone array multiple times in various environments and source settings.
 		     As the location gets more reverberant, more rotation steps are needed to have a good AoA estimation accuracy.
-		     <a><img src="img/AoA_performance_ICRA_v4.png" class="center" style='height: 125%; width: 125%; object-fit: contain'></a>
+		     <a><img src="img/AoA_performance_ICRA_v4.png" class="center" style='height: 100; width: 100; object-fit: contain'></a>
 		     
                       <h4><b>Source Separation</b></h4>
 		     &ensp; Since our proposed idea of aligning interference is complementary to existing UBSS/BSS algorithms, 
@@ -556,13 +575,8 @@ as RoSS with K sources has similar performance with K-1 sources without RoSS.
 			
 			<a><img src="img/Setting_table.png" class="center" style='height: 50%; width: 50%; object-fit: contain'></a>
 			<a><img src="img/Experiment_Pics_ICRA.png" class="center" style='height: 80%; width: 80%; object-fit: contain'></a>
+
 			
-			
-			<br>
-			&ensp; Here are separated results with audio samples for listening. The "Raw Mixture" is the aggregate of all sounds as recorded by the 
-                    microphone before any processing. Each row denote K signals of interest (target source) while each column denotes the type of results containing
-			ground truth signal to be recovered followed by IVA, DUET, adaptive LCMV(wideband MVDR) beamformer, and RoSS(at alignment angle). 
-			For example, row:S1 and col:Ground is the audio of the ground truth signal 1.
 			
                     <!-- <ul align="justify" >
                         <li>Unprocessed Mixture - original binaural sound mixture</li>
@@ -571,7 +585,55 @@ as RoSS with K sources has similar performance with K-1 sources without RoSS.
                     </ul> -->
                 </p>
 
-                <br>
+
+                <p>
+                    <a class="subtitle">(Video Demonstrations)</a>
+                    <br>
+                    &ensp; Here are video demonstrations for the system in practice. The first set of videos are the indoor demonstrations of AoA estimation
+                    and Source Separation.
+
+                    <br>
+                </p>
+                <p>
+                    <div class="row">
+                        <div class="column">
+                            <video width="640" height="480" controls>
+                                <source src="videos/K3IndoorAoA.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            <span class="videocaption">3 Source AoA</span>
+                        </div>
+                        <div class="column">
+                            <video width="640" height="480" controls>
+                                <source src="videos/K3IndoorSS.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            <p>3 Source AoA</p>
+                        </div>
+                        <div class="column">
+                            <video width="640" height="480" controls>
+                                <source src="videos/K4AoAIndoor.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            <p>3 Source AoA</p>
+                        </div>
+                        <div class="column">
+                            <video width="640" height="480" controls>
+                                <source src="videos/K4IndoorSS.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            <p>3 Source AoA</p>
+                        </div>
+                    </div>
+
+                    <br>
+                    &ensp; Here are separated results with audio samples for listening. The "Raw Mixture" is the aggregate of all sounds as recorded by the
+                    microphone before any processing. Each row denote K signals of interest (target source) while each column denotes the type of results containing
+                    ground truth signal to be recovered followed by IVA, DUET, adaptive LCMV(wideband MVDR) beamformer, and RoSS(at alignment angle).
+                    For example, row:S1 and col:Ground is the audio of the ground truth signal 1.
+
+                    <br>
+                </p>
  
 
 			<p>
