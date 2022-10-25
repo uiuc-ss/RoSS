@@ -577,7 +577,7 @@ mjx-stretchy-v mjx-c, mjx-stretchy-h mjx-c {
                 
 
 
-                <p> &ensp; We considers the problem of under-determined audio source separation problem [1] where there are more sources K than microphones M (K > M). 
+                <p> &ensp; We consider the problem of under-determined audio source separation[1] where there are more sources K than microphones M (K > M). 
 			The goal is to isolate a target audio signal (say Alice’s speech) from a mixture of multiple interfering signals (e.g., when many people are talking)
 			via rotational motion of microphones arrays. (e.g. a swiveling robot-head, rotating robot vacuums) 
 			<br>
@@ -607,7 +607,7 @@ This means, for any given signal, the relative delay, so called Internaural-Time
 			the microphone bisects the two sources A and B) 
 			<br>
 			
-			&ensp; In fact, this is a form of aliasing in delay since from the microphone’s perspective, the sources A and B look identical in terms of AoA.
+			&ensp; In fact, this is a form of aliasing in the delay domain since, from the microphone’s perspective, the sources A and B look identical in terms of AoA.
 			Thus, in this orientation, we mathematically have only two chunk of source signals, one is target signal T and the other is mixture of A and B.
 			Now it becomes 2 source 2 microphone problem where the system is not any more under-determined which now becomes an easier problem to solve. 
 <br>
@@ -615,7 +615,7 @@ This means, for any given signal, the relative delay, so called Internaural-Time
 			<a><img src="img/Sources_combine_ICRA.png" class="center" style='height: 80%; width: 80%; object-fit: contain'></a>
             
 	 After such rotational alignment, existing blind source separation (BSS) or Under-determined BSS techniques such as ICA(IVA) [2], DUET [3] can be performed
-			to enhance the target source. Our prposed idea is complementatry, hence comparible, with most source speration algorithms including supervised/unsupervised approaches.
+			to enhance the target source. Our prposed idea is complementatry, hence compatible, with most source speration algorithms including supervised/unsupervised approaches.
 		
 			<br>
 			&ensp; What if we don't know the angle-of-arrivals as a prior? Good news is rotational motion itself provides AoA information because ITD and AoA 
@@ -624,7 +624,7 @@ follow K cosine curves, ideally, if rotation is circular. By fitting the curves,
 			
 			<a><img src="img/K_AoA_ICRA_web.png" class="center" style='height: 80%; width: 80%; object-fit: contain'></a>
 			As this example result above shows, by fitting cosine curves into sampled ITD histograms, AoA spectrum can be acquired. 
-And primary peaks of AoA spectrum approache true AoA values as th rotation number goes up. Thus, after initial rotation steps RoSS identifies AoA values first. 
+And primary peaks of AoA spectrum approache true AoA values as the rotation number goes up. Thus, after initial rotation steps RoSS identifies AoA values first. 
 			Then, based on acquired AoA values, interference alignment can be performed to separate out target signal. 
 		</div>
 	
